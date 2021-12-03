@@ -182,3 +182,55 @@ function stringToarray(str) {
 console.log(stringToarray(str));
 */
 
+
+/*
+let user = {
+    name :"Владимир",
+    сity : "Павлово",
+    age : 24,
+}
+
+let without = (obj, field) => {
+    delete obj[field];
+    console.log(obj);   
+}
+
+
+without(user,"age")*/
+
+/*
+let user = {
+    name :"Владимир",
+    сity : "Павлово",
+    age : 24,
+}
+
+let checkField = (obj, field) => {
+    console.log(field in obj);
+}
+
+checkField (user, "lastname")
+checkField(user, "name")
+*/
+
+
+let dayWeek = {
+    1 : "Понедельник",
+    2 : "Вторник",
+    3 : "Среда",
+    4 : "Четверг",
+    5 : "Пятницак",
+    6 : "Суббота",
+    7 : "Воскресенье",
+
+    getDay: function(number) {
+        if (number >= 1 && number <= 7) {
+            console.log(this[number]);
+        } else {
+            console.log("Введите число от 1 до 7");
+        }
+    }
+}
+
+dayWeek.getDay("2")
+
