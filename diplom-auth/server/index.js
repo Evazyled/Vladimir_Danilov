@@ -11,16 +11,16 @@ let path = require('path')
 let app =express()
 
 
-const corsOptions = {
-    origin: ['https://vladimir-danilov.vercel.app'],
-    allowedHeaders: ["Content-Type", "Authorization","Access-Control-Allow-Origin", "Access-Control-Allow-Methods", "Access-Control-Request-Headers"],
-    enablePreflight: true
-}
+// const corsOptions = {
+//     origin: ['https://vladimir-danilov.vercel.app'],
+//     allowedHeaders: ["Content-Type", "Authorization","Access-Control-Allow-Origin", "Access-Control-Allow-Methods", "Access-Control-Request-Headers"],
+//     enablePreflight: true
+// }
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions))
+// app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions))
 
-// app.use(cors())
+app.use(cors())
 app.use(express.json())
 // app.use(express.static(path.resolve(__dirname,'static')))
 // app.use(fileUpload({}))
