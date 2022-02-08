@@ -1,11 +1,11 @@
 import axios from "axios";
 
 let $host = axios.create({
-    baseURL: "http://localhost:3000/"
+    baseURL: "https://fathomless-journey-95056.herokuapp.com/"
 })
 
 let $authHost = axios.create({
-    baseURL: "http://localhost:3000/"
+    baseURL: "https://fathomless-journey-95056.herokuapp.com/"
 })
 
 
