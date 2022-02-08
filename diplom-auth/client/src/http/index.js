@@ -1,12 +1,12 @@
 import axios from "axios";
-require('dotenv').config()
+
 
 let $host = axios.create({
-    baseURL: process.env.baseURL
+    baseURL: "https://aqueous-depths-72992.herokuapp.com/"
 })
 
 let $authHost = axios.create({
-    baseURL: process.env.baseURL
+    baseURL: "https://aqueous-depths-72992.herokuapp.com/"
 })
 
 
