@@ -1,11 +1,11 @@
 import axios from "axios";
 
 let $host = axios.create({
-    baseURL: preocess.env.baseURL
+    baseURL: process.env.baseURL
 })
 
 let $authHost = axios.create({
-    baseURL: preocess.env.baseURL
+    baseURL: process.env.baseURL
 })
 
 
