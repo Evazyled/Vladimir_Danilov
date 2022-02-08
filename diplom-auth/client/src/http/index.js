@@ -1,11 +1,11 @@
 import axios from "axios";
 
 let $host = axios.create({
-    baseURL: "https://fathomless-journey-95056.herokuapp.com/"
+    baseURL: "https://aqueous-depths-72992.herokuapp.com/"
 })
 
 let $authHost = axios.create({
-    baseURL: "https://fathomless-journey-95056.herokuapp.com/"
+    baseURL: "https://aqueous-depths-72992.herokuapp.com/"
 })
 
 
