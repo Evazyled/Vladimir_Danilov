@@ -1,11 +1,11 @@
 import axios from "axios";
 
 let $host = axios.create({
-    baseURL: "https://aqueous-depths-72992.herokuapp.com/"
+    baseURL: preocess.env.baseURL
 })
 
 let $authHost = axios.create({
-    baseURL: "https://aqueous-depths-72992.herokuapp.com/"
+    baseURL: preocess.env.baseURL
 })
 
 
