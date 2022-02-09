@@ -18,6 +18,47 @@ const Auth = observer( () => {
   let isLogin = location.pathname === LOGIN_ROUTE
   let [email, setEmail] = useState('')
   let [password, setPassword] = useState('')
+  let [emailDirty,setEmailDirty] = useState(false)
+  let [passwordDirty,setPasswordDirty] = useState(false)
+  let [emailError, setEmailError] = useState('Email не может быть пустым')
+  let [passwordError, setPasswordError] = useState('Пароль не может быть пустым')
+
+  let emailHandler = (e) => {
+    setEmail(e.target.value)
+    
+  let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    if(!re.test(String(e.target.value).toLowerCase())) {
+      setEmailError("Некоректный email")
+    } else {
+      setEmailError('')
+    }
+
+  }
+
+  let passwordHandler = (e) => {
+    setPassword(e.target.value)
+    if(!e.target.value) {
+      return  setPasswordError('Пароль не может быть пустым')
+    }  else if (e.target.value.length < 8 ) {
+       
+       return setPasswordError("Пароль должен содержать не менее 8 символов")
+     }  else {
+      return setPasswordError('')
+     }
+    
+  }
+
+
+  let blurHandler = (e) => {
+    switch(e.target.name) {
+      case "email" :
+      setEmailDirty(true)
+      break
+      case 'password': 
+      setPasswordDirty(true)
+      break
+    }
+  }
 
   let click = async () => {
     try {
@@ -49,21 +90,27 @@ const Auth = observer( () => {
         <Card style = {{width: 600}} className = 'p-5'>
           <h2 className="m-auto">{isLogin ? "Авторизация" : "Регистрация"}</h2>
           <Form className="d-flex flex-column">
+            {(emailDirty && emailError) && <div style = {{color:"red"} }>{emailError}</div>}
             <Form.Control
             className="mt-3"
              placeholder="Введите ваш email..."
+             name = 'email'
              value = {email}
-             onChange={e => setEmail(e.target.value)}
+             onBlur = {e => blurHandler(e)}
+             onChange={e => emailHandler(e)}
              
              />
              
               
-            
+             {(passwordDirty && passwordError) && <div style = {{color:"red"} }>{passwordError}</div>}
             <Form.Control
             className="mt-3"
              placeholder="Введите ваш пароль..."
+             name = 'password'
              value = {password}
-             onChange={e => setPassword(e.target.value)}
+             
+             onBlur = {e => blurHandler(e)}
+             onChange={e => passwordHandler(e)}
              type= 'password'
              /> 
             

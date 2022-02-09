@@ -3,7 +3,7 @@ import { Context } from "../index";
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from "react-bootstrap/Container";
-import { ADMIN_ROUTE, LOGIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
+import { LOGIN_ROUTE, SHOP_ROUTE } from "../utils/consts";
 import Button from 'react-bootstrap/Button'
 import { observer} from "mobx-react-lite";
 import { useHistory } from "react-router-dom";
