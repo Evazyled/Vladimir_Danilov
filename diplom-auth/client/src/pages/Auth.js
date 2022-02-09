@@ -27,14 +27,17 @@ const Auth = observer( () => {
     setEmail(e.target.value)
     
   let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-    if(!re.test(String(e.target.value).toLowerCase())) {
-      setEmailError("Некоректный email")
-    } else {
-      setEmailError('')
+    if(!e.target.value) {
+    return  setEmailError("Email не может быть пустым")
+    } else if (!re.test(String(e.target.value).toLowerCase())){
+     return setEmailError('Некоректный Email')
+    }
+    else  {
+    return  setEmailError('')
     }
 
   }
-
+  
   let passwordHandler = (e) => {
     setPassword(e.target.value)
     if(!e.target.value) {
